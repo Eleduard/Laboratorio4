@@ -9,17 +9,23 @@ import { Mapa } from "./componentes/Mapa.tsx";
 import { DetalleInstrumento } from "./componentes/DetalleInstrumento.tsx";
 import { Grilla } from "./componentes/Grilla.tsx";
 import Formulario from "./componentes/Formulario.tsx";
+import Login from "./componentes/Login.tsx";
+import rolUsuario from "./controlAcceso/RolUsuario.tsx";
+import { Roles } from "./entidades/Roles.tsx";
+import RolUsuario from "./controlAcceso/RolUsuario.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
       <MenuBar />
       <Routes>
-      <Route index element={<Home />} />
+      <Route index element={<Login />} />
         <Route path="/dondeestamos" element={<Mapa />} />
         <Route path="/productos" element={<Practico />} />
         <Route path="/:id" element={<DetalleInstrumento />} />
-        <Route path="/administrar" element={<Grilla />} />
+        <Route element={<RolUsuario rol={Roles.ADMIN} />}>
+          <Route path="/administrar" element={<Grilla />} />
+        </Route>
         <Route path="/formulario/:idInstrumento" element={<Formulario />}/>
       </Routes>
     </BrowserRouter>
