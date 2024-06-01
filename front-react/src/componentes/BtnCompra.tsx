@@ -2,7 +2,7 @@ import Instrumento from "../entidades/Intrumento";
 import { Pedido } from "../entidades/Pedido";
 import { PedidoDetalle } from "../entidades/PedidoDetalle";
 import useCarrito from "../hooks/useCarrito";
-import { crearPedido } from "../servicios/funciones";
+import { crearPedido } from "../servicios/pedidoServicio";
 
 type props = {
   carrito: Instrumento[];

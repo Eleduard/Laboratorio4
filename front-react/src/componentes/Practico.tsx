@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Instrumento from "../entidades/Intrumento";
-import { getFromJson } from "../servicios/funciones";
+import { getFromJson } from "../servicios/instrumentoServicio";
 import { ItemInstrumento } from "./ItemInstrumento";
 import { CarritoContextProvider } from "../contextos/CarritoContext";
 import { Carrito } from "./Carrito";

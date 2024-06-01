@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createPreferenceMP } from "../servicios/funciones";
+import { createPreferenceMP } from "../servicios/pedidoServicio";
 import PreferenceMP from "../entidades/PreferenceMP";
 import { Wallet, initMercadoPago } from "@mercadopago/sdk-react";
 

@@ -4,7 +4,7 @@ import {
   getDetalle,
   getCategorias,
   crearInstrumento,
-} from "../servicios/funciones";
+} from "../servicios/instrumentoServicio";
 import { useParams, useNavigate } from "react-router-dom";
 import { Categoria } from "../entidades/Categoria";
 
@@ -110,7 +110,7 @@ function InstrumentoFormulario() {
             id="txtNombre"
             className="form-control"
             placeholder="Ingrese el nombre"
-            value={instrumento.instrumento || ""}
+            value={instrumento ? instrumento.instrumento : ""}
             onChange={(e) =>
               setInstrumento({ ...instrumento, instrumento: e.target.value })
             }
@@ -125,7 +125,7 @@ function InstrumentoFormulario() {
             id="txtMarca"
             className="form-control"
             placeholder="Ingrese la marca"
-            value={instrumento.marca || ""}
+            value={instrumento ? instrumento.marca : ""}
             onChange={(e) =>
               setInstrumento({ ...instrumento, marca: e.target.value })
             }
@@ -140,7 +140,7 @@ function InstrumentoFormulario() {
             id="txtModelo"
             className="form-control"
             placeholder="Ingrese el modelo"
-            value={instrumento.modelo || ""}
+            value={instrumento ? instrumento.modelo : ""}
             onChange={(e) =>
               setInstrumento({ ...instrumento, modelo: e.target.value })
             }
@@ -155,7 +155,7 @@ function InstrumentoFormulario() {
             id="txtPrecio"
             className="form-control"
             placeholder="Ingrese el precio"
-            value={instrumento.precio || 0}
+            value={instrumento ? instrumento.precio : 0}
             onChange={(e) =>
               setInstrumento({
                 ...instrumento,
@@ -173,7 +173,7 @@ function InstrumentoFormulario() {
             id="txtImagen"
             className="form-control"
             placeholder="Ingrese la URL de la imagen"
-            value={instrumento.imagen || ""}
+            value={instrumento ? instrumento.imagen : ""}
             onChange={(e) =>
               setInstrumento({ ...instrumento, imagen: e.target.value })
             }
@@ -188,7 +188,7 @@ function InstrumentoFormulario() {
             id="txtCostoEnvio"
             className="form-control"
             placeholder="Ingrese el costo de envío"
-            value={instrumento.costoEnvio || ""}
+            value={instrumento ? instrumento.costoEnvio : ""}
             onChange={(e) =>
               setInstrumento({ ...instrumento, costoEnvio: e.target.value })
             }
@@ -203,7 +203,7 @@ function InstrumentoFormulario() {
             id="txtCantidadVendida"
             className="form-control"
             placeholder="Ingrese la cantidad vendida"
-            value={instrumento.cantidadVendida || 0}
+            value={instrumento ? instrumento.cantidadVendida : 0}
             onChange={(e) =>
               setInstrumento({
                 ...instrumento,
@@ -220,7 +220,7 @@ function InstrumentoFormulario() {
             id="txtDescripcion"
             className="form-control"
             placeholder="Ingrese la descripción"
-            value={instrumento.descripcion || ""}
+            value={instrumento ? instrumento.descripcion : ""}
             onChange={(e) =>
               setInstrumento({ ...instrumento, descripcion: e.target.value })
             }
@@ -234,7 +234,7 @@ function InstrumentoFormulario() {
             id="cmbCategoria"
             className="form-select"
             value={
-              instrumento.categoria ? instrumento.categoria.idCategoria : ""
+              instrumento ? instrumento.categoria ? instrumento.categoria.idCategoria : "" : ""
             }
             onChange={(e) =>
               setInstrumento({

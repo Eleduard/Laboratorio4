@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Instrumento from "../entidades/Intrumento";
-import { getDetalle } from "../servicios/funciones";
+import { getDetalle } from "../servicios/instrumentoServicio";
 import Envio from "./Envio";
 import { useParams } from "react-router-dom";
 

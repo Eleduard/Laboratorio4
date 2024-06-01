@@ -1,6 +1,18 @@
 import { Link } from "react-router-dom";
+import Usuario from "../entidades/Usuario";
+import { useEffect, useState } from "react";
 
 export const MenuBar = () => {
+  const user = localStorage.getItem("usuario");
+  const [deserializado, setDeserializado] = useState<Usuario>(new Usuario());
+
+  useEffect(() => {
+    if (user) {
+      setDeserializado(JSON.parse(user));
+    }
+  }, []);
+
+  console.log(deserializado);
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary position-sticky">
       <div className="container-fluid">
@@ -20,7 +32,7 @@ export const MenuBar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <Link to="/" className="nav-link active" aria-current="page">
+            <Link to="/home" className="nav-link active" aria-current="page">
               Home
             </Link>
             <Link to="/dondeestamos" className="nav-link">
@@ -34,6 +46,9 @@ export const MenuBar = () => {
             </Link>
           </div>
         </div>
+      </div>
+      <div className="justify-content-end">
+        {deserializado!.nombreUsuario}
       </div>
     </nav>
   );

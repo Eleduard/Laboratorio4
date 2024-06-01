@@ -1,6 +1,6 @@
 export default class Usuario {
     id?: number;
-    nombre: string = "";
+    nombreUsuario: string = "";
     clave: string = "";
     rol: string = "";
 }

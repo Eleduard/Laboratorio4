@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Instrumento from "../entidades/Intrumento";
-import { getFromJson, getCategorias, eliminarInstrumento } from "../servicios/funciones";
+import { getFromJson, getCategorias, eliminarInstrumento } from "../servicios/instrumentoServicio";
 import { Link } from "react-router-dom";
 import { BotonNuevo } from "./BotonNuevo";
 import { ComboCategorias } from "./ComboCategorias";
