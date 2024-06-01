@@ -1,16 +1,29 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Usuario from "../entidades/Usuario";
 import { useEffect, useState } from "react";
 
 export const MenuBar = () => {
   const user = localStorage.getItem("usuario");
   const [deserializado, setDeserializado] = useState<Usuario>(new Usuario());
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (user) {
       setDeserializado(JSON.parse(user));
     }
   }, []);
+
+  const cerrarSesion = () => {
+    localStorage.setItem('usuario', '');
+    console.log("Sesión cerrada");
+    navigate('/login', {
+      replace: true,
+      state: {
+        logged: false,
+        user: localStorage.getItem('usuario')
+      }
+    })
+  }
 
   console.log(deserializado);
   return (
@@ -49,6 +62,7 @@ export const MenuBar = () => {
       </div>
       <div className="justify-content-end">
         {deserializado!.nombreUsuario}
+        <button type="button" onClick={cerrarSesion}>Cerrar sesión</button>
       </div>
     </nav>
   );

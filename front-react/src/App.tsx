@@ -10,25 +10,26 @@ import { Mapa } from './componentes/Mapa';
 import Practico from './componentes/Practico';
 import RolUsuario from './controlAcceso/RolUsuario';
 import { Roles } from './entidades/Roles';
+import { RutaPrivada } from './controlAcceso/RutaPrivada';
 
 function App() {
   const location = useLocation();
-  const esconderMenu = location.pathname === "/";
+  const esconderMenu = location.pathname === "/login";
 
   return (
     <>
       {!esconderMenu && <MenuBar />}
 
       <Routes>
-        <Route index element={<Login />} />
-        <Route path="/home" element={<Home />} />
+        <Route index element={<Home />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/dondeestamos" element={<Mapa />} />
-        <Route path="/productos" element={<Practico />} />
+        <Route path="/productos" element={<RutaPrivada><Practico /></RutaPrivada>} />
         <Route path="/:id" element={<DetalleInstrumento />} />
         <Route element={<RolUsuario rol={Roles.ADMIN} />}>
           <Route path="/administrar" element={<Grilla />} />
         </Route>
-        <Route path="/formulario/:idInstrumento" element={<Formulario />}/>
+        <Route path="/formulario/:idInstrumento" element={<RutaPrivada><Formulario /></RutaPrivada>}/>
       </Routes>
     </>
   )

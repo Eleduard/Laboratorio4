@@ -1,9 +1,6 @@
-import { ReactNode, useState } from "react";
-import Usuario from "../entidades/Usuario";
+import { ReactNode } from "react";
 import { Navigate } from "react-router-dom";
 
 export const RutaPrivada = ({ children }: {children: ReactNode}) => {
-    const [usuario, setUsuario] = useState<Usuario>(localStorage.getItem('usuario') as unknown as Usuario);
-
-    return usuario ? children : <Navigate to="/" />;
+    return localStorage.getItem('usuario') != '' ? children : <Navigate to="/login" />;
 };
