@@ -12,22 +12,26 @@ export const BtnCompra = (props: props) => {
   const { limpiarCarrito } = useCarrito();
 
   function handleClick() {
-    const pedido = new Pedido();
-    const detalles: PedidoDetalle[] = [];
-    props.carrito.forEach((ic) => {
-      let renglon: PedidoDetalle = new PedidoDetalle();
-      pedido.totalPedido += ic.cantidad * ic.precio;
-      renglon.cantidad = ic.cantidad;
-      renglon.instrumento = ic;
-      detalles.push(renglon);
-    });
-    pedido.detalles = detalles;
-    console.log(pedido);
-    crearPedido(pedido)
-      .then(() => {
-        limpiarCarrito();
-      })
-      .catch((error) => console.log("Error al crear el pedido: ", error));
+    if (props.carrito.length === 0) {
+      alert("El carrito está vacío.");
+    } else {
+      const pedido = new Pedido();
+      const detalles: PedidoDetalle[] = [];
+      props.carrito.forEach((ic) => {
+        let renglon: PedidoDetalle = new PedidoDetalle();
+        pedido.totalPedido += ic.cantidad * ic.precio;
+        renglon.cantidad = ic.cantidad;
+        renglon.instrumento = ic;
+        detalles.push(renglon);
+      });
+      pedido.detalles = detalles;
+      console.log(pedido);
+      crearPedido(pedido)
+        .then(() => {
+          limpiarCarrito();
+        })
+        .catch((error) => console.log("Error al crear el pedido: ", error));
+    }
   }
 
   return (

@@ -6,8 +6,8 @@ export const MenuBar = () => {
   const user = localStorage.getItem("usuario");
   const [deserializado, setDeserializado] = useState<Usuario>(new Usuario());
   const navigate = useNavigate();
-
   useEffect(() => {
+    
     if (user) {
       setDeserializado(JSON.parse(user));
     }
@@ -62,7 +62,7 @@ export const MenuBar = () => {
       </div>
       <div className="justify-content-end">
         {deserializado!.nombreUsuario}
-        <button type="button" onClick={cerrarSesion}>Cerrar sesión</button>
+        <button type="button" className="btn btn-primary btn-sm m-2" onClick={cerrarSesion}>Cerrar sesión</button>
       </div>
     </nav>
   );

@@ -4,9 +4,13 @@ import { getFromJson } from "../servicios/instrumentoServicio";
 import { ItemInstrumento } from "./ItemInstrumento";
 import { CarritoContextProvider } from "../contextos/CarritoContext";
 import { Carrito } from "./Carrito";
+import { useFetch } from "../hooks/useFetch";
 
 export default function Listado() {
+  const url = import.meta.env.VITE_API_URL;
   const [instrumentos, setInstrumentos] = useState<Instrumento[]>([]);
+  const instr = useFetch(url + "instrumento/listado");
+  console.log(instr);
 
   useEffect(() => {
     getInstrumentos();
