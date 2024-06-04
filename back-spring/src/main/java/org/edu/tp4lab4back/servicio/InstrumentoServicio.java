@@ -22,7 +22,7 @@ public class InstrumentoServicio {
     }
 
     public Instrumento crearInstrumento(Instrumento instrumento){
-        return instrumentoRepositorio.save (instrumento);
+        return instrumentoRepositorio.save(instrumento);
     }
 
     public void eliminarInstrumento(int id){

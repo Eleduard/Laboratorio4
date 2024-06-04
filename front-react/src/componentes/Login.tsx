@@ -29,6 +29,26 @@ export default function Login() {
         usuario: usuario,
       },
     });
+  } 
+  
+  if (usuario && usuario.rol.toLowerCase() === "operador") {
+    navigate("/", {
+      replace: true,
+      state: {
+        logged: true,
+        usuario: usuario,
+      },
+    });
+  }
+
+  if (usuario && usuario.rol.toLowerCase() === "visor") {
+    navigate("/", {
+      replace: true,
+      state: {
+        logged: true,
+        usuario: usuario,
+      },
+    });
   }
 
   return (

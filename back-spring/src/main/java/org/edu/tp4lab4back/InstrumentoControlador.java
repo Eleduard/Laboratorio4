@@ -54,7 +54,7 @@ public class InstrumentoControlador {
     }
 
     @PostMapping("agregarInstrumento")
-    @PutMapping("agregarInstrumento")
+    @PutMapping("agregarInstrumento/{id}")
     public Instrumento crearInstrumento(@RequestBody Instrumento instrumento) {
         return instrumentoServicio.crearInstrumento(instrumento);
     }

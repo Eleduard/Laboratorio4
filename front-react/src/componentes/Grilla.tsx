@@ -9,7 +9,7 @@ import { Categoria } from "../entidades/Categoria";
 export const Grilla = () => {
   const [instrumentos, setInstrumentos] = useState<Instrumento[]>([]);
   const [categorias, setCategorias] = useState<Categoria[]>([]);
-  const [filtro, setFiltro] = useState<number>();
+  const [filtro, setFiltro] = useState<number>(0);
 
   useEffect(() => {
     getInstrumentos();
@@ -30,7 +30,7 @@ export const Grilla = () => {
       setFiltro(f);
   }
 
-  const instrumentosFiltrados = filtro!=null ? instrumentos.filter(i => i.categoria.idCategoria == filtro) : instrumentos;
+  const instrumentosFiltrados = filtro==0 ? instrumentos : instrumentos.filter(i => i.categoria.idCategoria == filtro);
 
   return (
     <>

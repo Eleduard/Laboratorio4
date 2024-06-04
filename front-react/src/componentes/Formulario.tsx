@@ -86,7 +86,7 @@ function InstrumentoFormulario() {
     }
 
     try {
-      if (instrumento && instrumento.idInstrumento) {
+      if (instrumento) {
         await crearInstrumento(instrumento);
       }
       navigate("/administrar");
