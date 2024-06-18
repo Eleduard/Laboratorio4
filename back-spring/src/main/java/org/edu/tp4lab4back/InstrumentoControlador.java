@@ -54,7 +54,11 @@ public class InstrumentoControlador {
     }
 
     @PostMapping("agregarInstrumento")
+<<<<<<< HEAD
     //@PutMapping("agregarInstrumento/{id}")
+=======
+    @PutMapping("agregarInstrumento/{id}")
+>>>>>>> df76b6128183d56871fb75dc02730c3bcd3b6b54
     public Instrumento crearInstrumento(@RequestBody Instrumento instrumento) {
         System.out.println("instrumento.getInstrumento() = " + instrumento.getInstrumento());
         return instrumentoServicio.crearInstrumento(instrumento);
