@@ -11,6 +11,8 @@ import Practico from './componentes/Practico';
 import RolUsuario from './controlAcceso/RolUsuario';
 import { Roles } from './entidades/Roles';
 import { RutaPrivada } from './controlAcceso/RutaPrivada';
+import Registro from './componentes/Registro';
+import { GCharts } from './componentes/GCharts';
 
 function App() {
   const location = useLocation();
@@ -23,13 +25,15 @@ function App() {
       <Routes>
         <Route index element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/registro" element={<Registro />} />
         <Route path="/dondeestamos" element={<Mapa />} />
         <Route path="/productos" element={<RutaPrivada><Practico /></RutaPrivada>} />
         <Route path="/:id" element={<DetalleInstrumento />} />
         <Route element={<RolUsuario rol={Roles.ADMIN} />}>
           <Route path="/administrar" element={<Grilla />} />
         </Route>
-        <Route path="/formulario/:idInstrumento" element={<RutaPrivada><Formulario /></RutaPrivada>}/>
+        <Route path="/estadisticas" element={<RutaPrivada><GCharts /></RutaPrivada>} />
+        <Route path="/formulario/:idInstrumento" element={<Formulario />}/>
       </Routes>
     </>
   )

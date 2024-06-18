@@ -49,6 +49,7 @@ export async function crearInstrumento(
   instrumento: Instrumento
 ): Promise<void> {
   try {
+    console.log(instrumento)
     const response = await fetch(url + "instrumento/agregarInstrumento", {
       method: "POST",
       headers: {
@@ -60,9 +61,12 @@ export async function crearInstrumento(
     if (!response.ok) {
       throw new Error("Error al crear el instrumento");
     }
+    
   } catch (error) {
     console.error("Error al crear el instrumento.", error);
   }
+  console.log(instrumento);
+  
 }
 
 export async function actualizarInstrumento(

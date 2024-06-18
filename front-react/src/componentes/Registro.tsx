@@ -1,37 +1,39 @@
 import { useNavigate } from "react-router-dom";
 import Usuario from "../entidades/Usuario";
-import { useState } from "react";
-import { getUsuario } from "../servicios/usuarioServicio";
-import Registro from "./Registro";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { getUsuario, setUsuario } from "../servicios/usuarioServicio";
+import { Roles } from "../entidades/Roles";
 
-export default function Login() {
+export default function Registro() {
   const navigate = useNavigate();
-  const [usuario, setUsuario] = useState<Usuario | null>(new Usuario());
+  const [user, setUser] = useState<Usuario | null>(new Usuario());
   const [userName, setUserName] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [rol, setRol] = useState<Roles>(Roles.VISOR);
   const [txtValidacion, setTxtValidacion] = useState<string>("");
 
-  const obtenerUsuario = async () => {
-    const user = await getUsuario(userName, password);
-    if (!user) {
-      setTxtValidacion("Usuario o contraseña inválidos.");
+  /*useEffect(() => {
+  if (user) {
+      setTxtValidacion("");
+      setTxtValidacion("Usuario existe.");
     } else {
-      setUsuario(user);
-      localStorage.setItem("usuario", JSON.stringify(user));
-
-      if (usuario && usuario.rol.toLowerCase() === "admin") {
-        navigate("/administrar", {
-          replace: true,
-          state: {
-            logged: true,
-            usuario: usuario,
-          },
-        });
-      } else {
-        navigate("/productos");
-      }
+      setTxtValidacion("");
+      setUsuario(userName, password, rol);
+      setTxtValidacion("Usuario creado.");
+      navigate('/login');
     }
+  }, [])
+
+  const obtenerUsuario = async () => {
+    const usuario = await getUsuario(userName, password);
+    if(usuario) {
+      setUser(usuario);
+    }     
+  };  */
+
+  const crearUsuario = async () => {
+    console.log(userName, "-", password, "-", rol)
+    await setUsuario(userName, password, rol);
   }
 
   return (
@@ -73,19 +75,20 @@ export default function Login() {
           />
         </div>
       </div>
+      
       <div className="row g-3 align-items-center justify-content-center">
         <div className="col-3">
           <button
             type="button"
             className="btn btn-primary"
-            onClick={obtenerUsuario}
+            onClick={crearUsuario}
           >
-            Ingresar
+            Aceptar
           </button>
         </div>
       </div>
       <div className="container">
-        <p style={{ color: "red" }}>{txtValidacion}</p>
+        <p style={{color:"red"}}>{txtValidacion}</p>
       </div>
     </div>
   );

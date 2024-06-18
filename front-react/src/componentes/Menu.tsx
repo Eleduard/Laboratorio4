@@ -16,11 +16,12 @@ export const MenuBar = () => {
   const cerrarSesion = () => {
     localStorage.setItem('usuario', '');
     console.log("Sesión cerrada");
+    localStorage.removeItem('usuario');
     navigate('/login', {
       replace: true,
       state: {
         logged: false,
-        user: localStorage.getItem('usuario')
+        //user: localStorage.getItem('usuario')
       }
     })
   }
@@ -56,6 +57,9 @@ export const MenuBar = () => {
             </Link>
             <Link to="/administrar" className="nav-link">
               Administrar
+            </Link>
+            <Link to="/estadisticas" className="nav-link">
+              Estadísticas
             </Link>
           </div>
         </div>

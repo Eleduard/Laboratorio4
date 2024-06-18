@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -21,7 +22,7 @@ public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idPedido;
-    private Date fechaPedido;
+    private LocalDate fechaPedido;
     private double totalPedido;
 
     @OneToMany(mappedBy = "pedido", cascade=CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)

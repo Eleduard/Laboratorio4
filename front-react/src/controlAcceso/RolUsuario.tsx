@@ -13,7 +13,7 @@ export default function rolUsuario({ rol }: Props) {
     const [jsonUsuario, setjsonUsuario] = useState<any>(localStorage.getItem('usuario'));
     const usuarioLogueado = JSON.parse(jsonUsuario) as Usuario;
 
-    if(usuarioLogueado && usuarioLogueado.rol === 'ADMIN') {
+    if(usuarioLogueado && usuarioLogueado.rol.toLowerCase() === 'admin') {
         return <Grilla />
     } else if(usuarioLogueado) {
         return <Home />

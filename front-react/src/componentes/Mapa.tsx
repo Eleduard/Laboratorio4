@@ -1,3 +1,5 @@
+import { GCharts } from "./GCharts";
+
 export const Mapa = () => {
   return (
     <div className="container-fluid" style={{ height: "91vh" }}>

@@ -2,18 +2,18 @@ import Envio from "./Envio";
 import "./ItemInstrumento.css";
 import Instrumento from "../entidades/Intrumento";
 import { Link } from "react-router-dom";
-import  useCarrito  from "../hooks/useCarrito";
+import useCarrito from "../hooks/useCarrito";
 //import { useState } from "react";
 
 export function ItemInstrumento(props: Instrumento) {
   //const [contador, incrementarCantidad] = useState(0);
-  const { addCarrito, removeCarrito, cart, removeItemCarrito } = useCarrito()
+  const { addCarrito, removeCarrito, cart, removeItemCarrito } = useCarrito();
 
-    const verificaInstrumentoEnCarrito = (product:Instrumento) => {
-        return cart.some(item => item.idInstrumento === product.idInstrumento)
-    }
+  const verificaInstrumentoEnCarrito = (product: Instrumento) => {
+    return cart.some((item) => item.idInstrumento === product.idInstrumento);
+  };
 
-    const isInstrumentoInCarrito = verificaInstrumentoEnCarrito(props)
+  const isInstrumentoInCarrito = verificaInstrumentoEnCarrito(props);
 
   return (
     <div className="container-fluid">
@@ -42,26 +42,30 @@ export function ItemInstrumento(props: Instrumento) {
                 Ver detalle
               </Link>
               <p>
-            <a className='iconoMasMenos' onClick={() => removeItemCarrito(props)}>
-            -
-            </a>
-            <button className="btn btn-outline-success btn-sm"
+                <a
+                  className="iconoMasMenos"
+                  onClick={() => removeItemCarrito(props)}
+                >
+                  -
+                </a>
+                <button
+                  className="btn btn-outline-success btn-sm"
                   onClick={() => {
                     isInstrumentoInCarrito
                       ? removeCarrito(props)
-                      : addCarrito(props)
+                      : addCarrito(props);
                   }}
                 >
-                  {
-                    isInstrumentoInCarrito
-                      ? <img src={`./img/deleteCart.png`} title='Quitar' />
-                      : <img src={`./img/addCart.png`}  title='Comprar' />
-                  }
-            </button>
-            <a className='iconoMasMenos' onClick={() => addCarrito(props)}>
-             +
-            </a> 
-            </p>
+                  {isInstrumentoInCarrito ? (
+                    <img src={`./img/deleteCart.png`} title="Quitar" />
+                  ) : (
+                    <img src={`./img/addCart.png`} title="Comprar" />
+                  )}
+                </button>
+                <a className="iconoMasMenos" onClick={() => addCarrito(props)}>
+                  +
+                </a>
+              </p>
             </div>
           </div>
         </div>

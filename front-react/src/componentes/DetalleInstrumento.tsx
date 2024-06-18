@@ -3,6 +3,7 @@ import Instrumento from "../entidades/Intrumento";
 import { getDetalle } from "../servicios/instrumentoServicio";
 import Envio from "./Envio";
 import { useParams } from "react-router-dom";
+import { generarPdf } from "../servicios/estadisticasServicio";
 
 export const DetalleInstrumento = () => {
   const [instrumento, setInstrumento] = useState<Instrumento>();
@@ -28,6 +29,9 @@ export const DetalleInstrumento = () => {
     <div className="container-fluid w-75" style={{height:'100vh'}}>
       <div className="card mb-3">
         <div className="row g-0">
+          <div>
+            <button className="btn btn-primary btn-md" type="button" onClick={() => generarPdf(instrumento)}>Generar PDF</button>
+          </div>
           <div className="col-md-6">
             <img
               src={"../../img/" + instrumento.imagen}

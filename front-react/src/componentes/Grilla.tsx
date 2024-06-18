@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { BotonNuevo } from "./BotonNuevo";
 import { ComboCategorias } from "./ComboCategorias";
 import { Categoria } from "../entidades/Categoria";
+import BtnExcel from "./BtnExcel";
 
 export const Grilla = () => {
   const [instrumentos, setInstrumentos] = useState<Instrumento[]>([]);
@@ -36,10 +37,13 @@ export const Grilla = () => {
     <>
       <div className="table">
         <div className="row">
-          <div className="col-6 text-center">
+          <div className="col-4 text-center">
             <BotonNuevo />
           </div>
-          <div className="col-6">
+          <div className="col-4">
+            <BtnExcel />
+          </div>
+          <div className="col-4">
             <ComboCategorias cates={categorias} filtro={getFiltro} />
           </div>
         </div>

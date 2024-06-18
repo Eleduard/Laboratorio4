@@ -86,9 +86,9 @@ function InstrumentoFormulario() {
     }
 
     try {
-      if (instrumento && instrumento.idInstrumento) {
+      
         await crearInstrumento(instrumento);
-      }
+      
       navigate("/administrar");
     } catch (error) {
       console.error("Error al guardar el instrumento:", error);
