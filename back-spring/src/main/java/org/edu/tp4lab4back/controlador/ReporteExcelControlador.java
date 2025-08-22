@@ -1,4 +1,4 @@
-package org.edu.tp4lab4back;
+package org.edu.tp4lab4back.controlador;
 
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -94,6 +94,7 @@ public class ReporteExcelControlador {
             // Escribir workbook a ByteArrayOutputStream
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             workbook.write(baos);
+            workbook.close();
 
             // Configurar la respuesta para descargar el archivo Excel
             HttpHeaders headers = new HttpHeaders();

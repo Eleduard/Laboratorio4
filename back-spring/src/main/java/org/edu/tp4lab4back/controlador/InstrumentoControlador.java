@@ -1,4 +1,4 @@
-package org.edu.tp4lab4back;
+package org.edu.tp4lab4back.controlador;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
