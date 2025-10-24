@@ -1,18 +1,20 @@
 package org.edu.tp4lab4back.controlador;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
+/*import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;*/
 import org.edu.tp4lab4back.modelo.Instrumento;
 import org.edu.tp4lab4back.servicio.InstrumentoServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+/*import java.io.FileNotFoundException;
+import java.io.InputStreamReader;
+import java.io.Reader;*/
 import java.util.List;
 
 @RestController
 @RequestMapping("instrumento")
+//crear una clase configuración para el cors y otras cosas
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT})
 public class InstrumentoControlador {
 
@@ -29,10 +31,19 @@ public class InstrumentoControlador {
         return instrumentoServicio.obtenerInstrumento(id);
     }
 
-    @PostMapping("poblar-base")
+    //arreglar porque no anda
+    /*@PostMapping("poblar-base")
+    @Transactional
     public void crearInstrumento() throws FileNotFoundException {
         try {
-            FileReader archivo = new FileReader("E:\\Java\\tp4lab4back\\instrumentos.json");
+            ClassPathResource resource = new ClassPathResource("instrumentos.json");
+
+            // DEBUG 1: Verificar si el archivo existe
+            System.out.println("¿Archivo existe? " + resource.exists());
+            System.out.println("Path: " + resource.getPath());
+            System.out.println("Descripción: " + resource.getDescription());
+
+            Reader archivo = new InputStreamReader(resource.getInputStream());
             JsonElement elemento = JsonParser.parseReader(archivo);
             for (JsonElement inst : elemento.getAsJsonObject().getAsJsonArray("instrumentos")) {
                 Instrumento instrumento = Instrumento.builder()
@@ -51,7 +62,7 @@ public class InstrumentoControlador {
         } catch(Exception e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     @PostMapping("agregarInstrumento")
     @PutMapping("agregarInstrumento/{id}")
