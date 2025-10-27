@@ -72,7 +72,7 @@ public class ReporteExcelControlador {
                         Row row = sheet.createRow(rowNum++);
                         row.createCell(0).setCellValue(pedido.getFechaPedido().toString());
                         row.createCell(1).setCellValue(detalle.getInstrumento().getInstrumento());
-                        row.createCell(2).setCellValue(detalle.getInstrumento().getMarca());
+                        //row.createCell(2).setCellValue(detalle.getInstrumento().getMarca());
                         row.createCell(3).setCellValue(detalle.getInstrumento().getModelo());
                         row.createCell(4).setCellValue(detalle.getCantidad());
 
