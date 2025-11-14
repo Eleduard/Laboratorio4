@@ -2,6 +2,7 @@ package org.edu.tp4lab4back.controlador;
 
 /*import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;*/
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.edu.tp4lab4back.modelo.Instrumento;
 import org.edu.tp4lab4back.servicio.InstrumentoServicio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;*/
 import java.util.List;
 
+@Tag(name = "Instrumento", description = "API REST Instrumento")
 @RestController
 @RequestMapping("instrumento")
 //crear una clase configuración para el cors y otras cosas

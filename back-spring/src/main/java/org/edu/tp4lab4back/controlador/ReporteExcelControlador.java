@@ -78,12 +78,12 @@ public class ReporteExcelControlador {
 
                         // Crear celda para precio
                         Cell precioCell = row.createCell(5);
-                        precioCell.setCellValue(detalle.getInstrumento().getPrecio());
+                        precioCell.setCellValue(detalle.getInstrumento().getPrecioActual());
                         precioCell.setCellStyle(currencyStyle); // Aplicar estilo de moneda
 
                         // Calcular y crear celda para subtotal
                         Cell subtotalCell = row.createCell(6);
-                        subtotalCell.setCellValue(detalle.getCantidad() * detalle.getInstrumento().getPrecio());
+                        subtotalCell.setCellValue(detalle.getCantidad() * detalle.getInstrumento().getPrecioActual());
                         subtotalCell.setCellStyle(currencyStyle); // Aplicar estilo de moneda
                     }
                 }

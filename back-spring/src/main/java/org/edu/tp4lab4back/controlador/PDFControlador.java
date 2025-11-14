@@ -109,7 +109,7 @@ public class PDFControlador {
             // Precio
             PdfPCell priceCell = new PdfPCell();
             priceCell.setBorder(com.lowagie.text.Rectangle.NO_BORDER);
-            Paragraph price = new Paragraph("$" + instrumento.getPrecio(), priceFont);
+            Paragraph price = new Paragraph("$" + instrumento.getPrecioActual(), priceFont);
             priceCell.addElement(price);
             rightTable.addCell(priceCell);
 
