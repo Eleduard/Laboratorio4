@@ -125,7 +125,7 @@ public class PDFControlador {
             shippingCell.setBorder(com.lowagie.text.Rectangle.NO_BORDER);
             Paragraph shippingLabel = new Paragraph("Costo Envio:", envioFont);
             shippingCell.addElement(shippingLabel);
-            if (instrumento.getCostoEnvio().equals("G")) {
+            /*if (instrumento.getCostoEnvio().equals("G")) {
                 // Envío gratis
                 com.lowagie.text.Image truckIcon = Image.getInstance("E:\\Laboratorio 4\\front-react\\public\\img\\camion.png");
                 truckIcon.scaleToFit(15, 15);
@@ -139,7 +139,7 @@ public class PDFControlador {
                 Paragraph shippingCost = new Paragraph("$" + instrumento.getCostoEnvio(), normalFont);
                 shippingCell.addElement(shippingCost);
             }
-            rightTable.addCell(shippingCell);
+            rightTable.addCell(shippingCell);*/
 
             // Agregar tabla derecha a la celda de la derecha de la tabla principal
             PdfPCell rightMainCell = new PdfPCell(rightTable);

@@ -22,13 +22,10 @@ public class Instrumento {
     private String instrumento;
     private String modelo;
     private String imagen;
-
-    @Column(name = "costo_envio")
-    private String costoEnvio;
+    private String descripcion;
 
     @Column(name = "cantidad_vendida")
     private int cantidadVendida;
-    private String descripcion;
 
     @ManyToOne
     @JoinColumn(name = "categoria_id")
