@@ -31,7 +31,7 @@ export default function Listado() {
                 idInstrumento={i.idInstrumento}
                 instrumento={i.instrumento}
                 imagen={i.imagen}
-                precio={i.precio}
+                precioActual={i.precioActual}
                 costoEnvio={i.costoEnvio}
                 cantidadVendida={i.cantidadVendida}
                 marca={i.marca}

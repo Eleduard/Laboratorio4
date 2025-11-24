@@ -2,6 +2,7 @@ package org.edu.tp4lab4back.modelo;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,5 +31,6 @@ public class HistoricoPrecios {
     
     @ManyToOne
     @JoinColumn(name = "instrumento_id", nullable = false)
+    @JsonBackReference
     private Instrumento instrumento;
 }

@@ -14,7 +14,7 @@ function CartItem(item: Instrumento) {
           alt={item.instrumento}
         />
         <div>
-          <strong>{item.instrumento}</strong> - ${item.precio}
+          <strong>{item.instrumento}</strong> - ${item.precioActual}
         </div>
         <div>
           <b>
@@ -30,7 +30,9 @@ function CartItem(item: Instrumento) {
 export function Carrito() {
   const { cart, addCarrito, limpiarCarrito } = useCarrito();
   let totalPedido: number = 0;
-  cart.forEach((inst) => totalPedido += inst.precio)
+  cart.forEach((inst) => {
+    totalPedido += inst.precioActual * inst.cantidad;
+  });
 
   const mostrarCarritoJSON = () => {
     console.log(cart);
@@ -49,7 +51,7 @@ export function Carrito() {
             <CartItem
               idInstrumento={instrumento.idInstrumento}
               instrumento={instrumento.instrumento}
-              precio={instrumento.precio}
+              precioActual={instrumento.precioActual}
               key={index}
               imagen={instrumento.imagen}
               descripcion={instrumento.descripcion}

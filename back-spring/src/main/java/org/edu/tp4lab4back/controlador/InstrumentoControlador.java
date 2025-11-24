@@ -68,9 +68,9 @@ public class InstrumentoControlador {
 
     @PostMapping("agregarInstrumento")
     @PutMapping("agregarInstrumento/{id}")
-    public Instrumento crearInstrumento(@RequestBody Instrumento instrumento) {
+    public Instrumento crearInstrumento(@RequestBody Instrumento instrumento, double precio) {
         System.out.println("instrumento.getInstrumento() = " + instrumento.getInstrumento());
-        return instrumentoServicio.crearInstrumento(instrumento);
+        return instrumentoServicio.crearInstrumento(instrumento, precio);
     }
 
     @DeleteMapping("eliminarInstrumento/{id}")

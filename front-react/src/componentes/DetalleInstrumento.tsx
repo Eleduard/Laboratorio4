@@ -47,8 +47,8 @@ export const DetalleInstrumento = () => {
                 </small>
               </p>
               <p className="card-text descripcion">{instrumento.instrumento}</p>
-              <h5 className="card-title titulo">$ {instrumento.precio}</h5>
-              <p className="card-text">{"Marca: " + instrumento.marca}</p>
+              <h5 className="card-title titulo">$ {instrumento.precioActual}</h5>
+              <p className="card-text">{"Marca: " + instrumento.marca.marca}</p>
               <p className="card-text">{"Modelo: " + instrumento.modelo}</p>
               <p className="card-text" id="envio">
                 <Envio costoEnvio={instrumento.costoEnvio} />

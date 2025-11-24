@@ -1,13 +1,17 @@
 import { ChangeEventHandler } from "react";
 import { Categoria } from "./Categoria";
+import Marca from "./Marca";
 
 export default class Instrumento {
 	idInstrumento: number = 0;
 	instrumento: string = "";
-	marca: string = "";
+	marca: Marca = {
+		idMarca: 0,
+		marca: ""
+	};
 	modelo: string = "";
 	imagen: string = "";
-	precio: number = 0;
+	precioActual: number = 0;
 	costoEnvio: string = "";
 	cantidadVendida: number = 0;
 	descripcion: string = "";

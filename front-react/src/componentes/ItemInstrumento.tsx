@@ -29,7 +29,7 @@ export function ItemInstrumento(props: Instrumento) {
           <div className="col-md-8">
             <div className="card-body">
               <p className="card-text descripcion">{props.instrumento}</p>
-              <h5 className="card-title titulo">$ {props.precio}</h5>
+              <h5 className="card-title titulo">$ {props.precioActual}</h5>
               <p className="card-text" id="envio">
                 <Envio costoEnvio={props.costoEnvio} />
               </p>

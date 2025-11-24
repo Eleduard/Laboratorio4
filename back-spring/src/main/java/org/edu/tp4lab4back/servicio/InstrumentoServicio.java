@@ -1,6 +1,7 @@
 package org.edu.tp4lab4back.servicio;
 
 import org.edu.tp4lab4back.modelo.Instrumento;
+import org.edu.tp4lab4back.repositorio.HistoricoPreciosRepositorio;
 import org.edu.tp4lab4back.repositorio.InstrumentoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,8 @@ public class InstrumentoServicio {
 
     @Autowired
     private InstrumentoRepositorio instrumentoRepositorio;
+    @Autowired
+    private HistoricoPreciosServicio historicoPreciosServicio;
 
     public List<Instrumento> obtenerInstrumentos(){
         return instrumentoRepositorio.findAll();
@@ -21,8 +24,12 @@ public class InstrumentoServicio {
         return instrumentoRepositorio.findById(id).orElse(null);
     }
 
-    public Instrumento crearInstrumento(Instrumento instrumento){
-        return instrumentoRepositorio.save(instrumento);
+    public Instrumento crearInstrumento(Instrumento instrumento, double precio){
+
+        instrumentoRepositorio.save(instrumento);
+        historicoPreciosServicio.registrarNuevoPrecio(instrumento, precio);
+        return instrumento;
+
     }
 
     public void eliminarInstrumento(int id){

@@ -3,6 +3,7 @@ package org.edu.tp4lab4back.modelo;
 import java.util.Comparator;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -38,6 +39,7 @@ public class Instrumento {
     private Marca marca;
 
     @OneToMany(mappedBy = "instrumento")
+    @JsonManagedReference
     private List<HistoricoPrecios> historicoPrecios;
 
     @Transient
