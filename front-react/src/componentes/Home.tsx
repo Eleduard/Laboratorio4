@@ -1,6 +1,6 @@
 export const Home = () => {
   return (
-    <div className="container-fluid">
+    <div className="container-fluid home">
       <div
         id="carouselExampleAutoplaying"
         className="carousel slide"

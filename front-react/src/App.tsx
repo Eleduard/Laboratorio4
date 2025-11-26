@@ -21,7 +21,6 @@ function App() {
   return (
     <>
       {!esconderMenu && <MenuBar />}
-
       <Routes>
         <Route index element={<Home />} />
         <Route path="/login" element={<Login />} />

@@ -28,8 +28,9 @@ export const MenuBar = () => {
 
   console.log(deserializado);
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary position-sticky">
+    <nav className="navbar navbar-expand-lg bg-body-tertiary position-fixed">
       <div className="container-fluid">
+        <img src="img/icono.jpeg" alt="" style={{width: '5%', height: 'auto'}} />
         <a className="navbar-brand" href="#">
           Mj Music
         </a>
