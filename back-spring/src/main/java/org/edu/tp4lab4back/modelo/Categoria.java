@@ -17,5 +17,6 @@ public class Categoria {
     @Id
     private long idCategoria;
     private String denominacion;
+    private String icono;
 
 }
