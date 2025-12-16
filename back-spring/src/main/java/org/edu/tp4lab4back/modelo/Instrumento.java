@@ -19,13 +19,9 @@ public class Instrumento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idInstrumento;
-    private String instrumento;
     private String modelo;
     private String imagen;
     private String descripcion;
-
-    @Column(name = "cantidad_vendida")
-    private int cantidadVendida;
 
     @ManyToOne
     @JoinColumn(name = "categoria_id")

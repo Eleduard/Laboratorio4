@@ -17,8 +17,8 @@ public interface PedidoRepositorio extends JpaRepository<Pedido, Long> {
             "FROM Pedido p GROUP BY YEAR(p.fechaPedido), MONTH(p.fechaPedido)")
     public List<OrdenPorMesDTO> obtenerPorMes();
 
-    @Query("SELECT new org.edu.tp4lab4back.dto.OrdenPorInstrumentoDTO(i.instrumento, COUNT(p)) " +
-            "FROM PedidoDetalle pd JOIN pd.pedido p JOIN pd.instrumento i GROUP BY i.instrumento")
+    @Query("SELECT new org.edu.tp4lab4back.dto.OrdenPorInstrumentoDTO(i.modelo, COUNT(p)) " +
+            "FROM PedidoDetalle pd JOIN pd.pedido p JOIN pd.instrumento i GROUP BY i.modelo")
     List<OrdenPorInstrumentoDTO> obtenerPorInstrumento();
 
     @Query("SELECT p FROM Pedido p WHERE p.fechaPedido >= :fechaDesde AND p.fechaPedido <= :fechaHasta")

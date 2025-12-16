@@ -93,17 +93,17 @@ public class PDFControlador {
             // Cantidad vendida
             PdfPCell vendidosCell = new PdfPCell();
             vendidosCell.setBorder(com.lowagie.text.Rectangle.NO_BORDER);
-            Paragraph vendidosParagraph = new Paragraph(instrumento.getCantidadVendida() + " vendidos", italicFont);
-            vendidosParagraph.setAlignment(Element.ALIGN_LEFT);
-            vendidosCell.addElement(vendidosParagraph);
+            //Paragraph vendidosParagraph = new Paragraph(instrumento.getCantidadVendida() + " vendidos", italicFont);
+            //vendidosParagraph.setAlignment(Element.ALIGN_LEFT);
+            //vendidosCell.addElement(vendidosParagraph);
             rightTable.addCell(vendidosCell);
 
             // Título
             PdfPCell titleCell = new PdfPCell();
             titleCell.setBorder(com.lowagie.text.Rectangle.NO_BORDER);
-            Paragraph title = new Paragraph(instrumento.getInstrumento(), titleFont);
-            title.setAlignment(Element.ALIGN_LEFT);
-            titleCell.addElement(title);
+            //Paragraph title = new Paragraph(instrumento.getInstrumento(), titleFont);
+            //title.setAlignment(Element.ALIGN_LEFT);
+            //titleCell.addElement(title);
             rightTable.addCell(titleCell);
 
             // Precio
