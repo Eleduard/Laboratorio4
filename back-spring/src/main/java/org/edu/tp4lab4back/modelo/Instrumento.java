@@ -22,6 +22,7 @@ public class Instrumento {
     private String modelo;
     private String imagen;
     private String descripcion;
+    private double precio;
 
     @ManyToOne
     @JoinColumn(name = "categoria_id")
@@ -30,25 +31,5 @@ public class Instrumento {
     @ManyToOne
     @JoinColumn(name = "marca_id")
     private Marca marca;
-
-    @OneToMany(mappedBy = "instrumento")
-    @JsonManagedReference
-    private List<HistoricoPrecios> historicoPrecios;
-
-    @Transient
-    private Double precioActual;
-
-    public double getPrecioActual() {
-        if(precioActual != null) {
-            return precioActual;
-        }
-        if (historicoPrecios == null || historicoPrecios.isEmpty()) {
-            return 0.0;
-        }
-        return historicoPrecios.stream()
-                .max(Comparator.comparing(HistoricoPrecios::getFechaDesde))
-                .map(HistoricoPrecios::getPrecio)
-                .orElse(0.0);
-    }
 
 }
